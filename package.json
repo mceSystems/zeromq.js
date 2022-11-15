@@ -1,5 +1,5 @@
 {
-  "name": "zeromq",
+  "name": "@mcesystems/zeromq",
   "version": "6.0.0-beta.6",
   "description": "Next-generation ZeroMQ bindings for Node.js",
   "main": "lib/index.js",
@@ -62,6 +62,7 @@
     "vendor/LICENSE.md"
   ],
   "scripts": {
+	"prepublishOnly": "node script/ci/download.js && npm run ci:compile",
     "install": "node-gyp-build",
     "ci:compile": "tsc --project tsconfig-build.json",
     "ci:doc": "typedoc --out docs --name zeromq.js --excludeProtected --excludePrivate --excludeNotExported --excludeExternals --externalPattern 'src/+(draft|native|compat).ts' --tsconfig tsconfig-build.json --mode file",
